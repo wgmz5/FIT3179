@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 400,
+  "background": "white",
+  "data": {
+    "url": "https://raw.githubusercontent.com/wgmz5/FIT3179/main/Data/gdp_2020_Top10_Cleaned.csv"
+  },
+  "layer": [
+    {
+      "selection": {
+        "countrySelect": {
+          "type": "multi",
+          "fields": ["Country"],
+          "bind": "legend"
+        }
+      },
+      "mark": {"type": "line", "point": true},
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "axis": {
+            "title": "Year 2016 - 2020",
+            "values": [2016, 2017, 2018, 2019, 2020]
+          }
+        },
+        "y": {
+          "field": "Rank",
+          "type": "quantitative",
+          "sort": "descending",
+          "axis": {
+            "title": "Country Ranking",
+            "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+          }
+        },
+        "color": {
+          "field": "Country",
+          "scale": {"scheme": "category10"},
+          "legend": {"labelFontSize": 8, "titleFontSize": 8}
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {"field": "Rank", "type": "quantitative", "title": "Rank"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>

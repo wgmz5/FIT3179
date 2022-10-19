@@ -12,6 +12,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
   "height": 500,
+  "background": "white",
   "data": {
     "url": "https://raw.githubusercontent.com/wgmz5/FIT3179/main/Data/country_medals_Top20.csv"
   },
@@ -19,7 +20,7 @@
     {
       "filter": "Continent_selection == null || datum.Continent == Continent_selection"
     },
-    {"filter": "datum.Total_Combined_Medals > 1"}
+    {"filter": "datum.Total_Combined_Medals >1"}
   ],
   "params": [
     {
@@ -50,22 +51,20 @@
   ],
   "encoding": {
     "x": {
-      "field": "Country",
-      "type": "nominal",
-      "sort": {
-        "op": "sum",
-        "field": "Total_Combined_Medals",
-        "order": "descending"
-      }
-    },
-    "y": {
       "field": "Total_Combined_Medals",
       "type": "quantitative",
-      "title": "Accumulated Medals"
+      "title": "Accumulated Medals",
+      "sort": {"op": "sum", "field": "Country"}
+    },
+    "y": {
+      "field": "Country",
+      "type": "nominal",
+      "title": "Top 20 Countries",
+      "sort": ""
     }
   },
   "layer": [
-    {"mark": {"type": "bar", "width": 12, "color": "grey"}},
+    {"mark": {"type": "bar", "width": 4, "color": "grey"}},
     {
       "mark": {
         "type": "circle",

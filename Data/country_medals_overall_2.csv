@@ -1,4 +1,4 @@
-Country,Continent,summer_total_medals,winter_total_medals,Total_Combined_Medals
+Country,Continent,Total_Summer_Medals,Total_Winter_Medals,Total_Combined_Medals
 Afghanistan,Asia,2,0,2
 Albania,Europe,0,0,0
 Algeria,Africa,17,0,17

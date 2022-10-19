@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wgmz5/FIT3179/main/Data/country_medals_Top20.csv"
+  },
+  "transform": [
+    {
+      "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+    },
+    {"filter": "datum.Total_Combined_Medals > 1"}
+  ],
+  "params": [
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "North America",
+          "South America",
+          "Asia",
+          "Europe",
+          "Oceania",
+          "Africa"
+        ],
+        "labels": [
+          "Show All",
+          "North America",
+          "South America",
+          "Asia",
+          "Europe",
+          "Oceania",
+          "Africa"
+        ],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Country",
+      "type": "nominal",
+      "sort": {
+        "op": "sum",
+        "field": "Total_Combined_Medals",
+        "order": "descending"
+      }
+    },
+    "y": {
+      "field": "Total_Combined_Medals",
+      "type": "quantitative",
+      "title": "Accumulated Medals"
+    }
+  },
+  "layer": [
+    {"mark": {"type": "bar", "width": 12, "color": "grey"}},
+    {
+      "mark": {
+        "type": "circle",
+        "size": 650,
+        "stroke": "black",
+        "color": "blue",
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {
+            "field": "Total_Combined_Medals",
+            "type": "quantitative",
+            "title": "Top 20 Countries for Olympics"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>

@@ -1,21 +1,21 @@
-Country,Continent,Total_Summer_Medals,Total_Winter_Medals,Total_Combined_Medals,ID
-United States of America,North America,2629,330,2959,1
-Russia,Europe,1514,364,1878,2
-United Kingdom,Europe,916,34,950,3
-Germany,Europe,655,267,922,4
-France,Europe,751,138,889,5
-Italy,Europe,618,141,759,6
-China,Asia,634,77,711,7
-Sweden,Europe,503,176,679,8
-Japan,Asia,497,76,573,9
-Norway,Europe,163,405,568,10
-Australia,Oceania,547,19,566,11
-Canada,North America,326,225,551,12
-Hungary,Europe,511,10,521,13
-Finland,Europe,305,175,480,14
-Netherlands,Europe,322,147,469,15
-Switzerland,Europe,206,168,374,16
-South Korea,Asia,287,79,366,17
-Austria,Europe,96,250,346,18
-Poland,Europe,298,23,321,19
-Romania,Europe,308,1,309,20
+ID,Country,Continent,Total_Summer_Medals,Total_Winter_Medals,Total_Combined_Medals
+1,United States of America,North America,2629,330,2959
+2,Russia,Europe,1514,364,1878
+3,United Kingdom,Europe,916,34,950
+4,Germany,Europe,655,267,922
+5,France,Europe,751,138,889
+6,Italy,Europe,618,141,759
+7,China,Asia,634,77,711
+8,Sweden,Europe,503,176,679
+9,Japan,Asia,497,76,573
+10,Norway,Europe,163,405,568
+11,Australia,Oceania,547,19,566
+12,Canada,North America,326,225,551
+13,Hungary,Europe,511,10,521
+14,Finland,Europe,305,175,480
+15,Netherlands,Europe,322,147,469
+16,Switzerland,Europe,206,168,374
+17,South Korea,Asia,287,79,366
+18,Austria,Europe,96,250,346
+19,Poland,Europe,298,23,321
+20,Romania,Europe,308,1,309

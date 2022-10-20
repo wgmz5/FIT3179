@@ -50,7 +50,13 @@
         </div>
       </div>
       <div class="pure-u-1-2">
-        <div id="vis1" class="vis-container"></div>
+        <div id="Choropleth_Map" class="vis-container"></div>
+        <script type="text/javascript">
+          var spec2 = "Js/Choropleth_Map.html";
+          vegaEmbed('#Choropleth_Map', spec2, { "actions": false }).then(function(result) {
+
+          }).catch(console.error)
+      </script>
       </div>
     </div>
     <!-- end pure grid group -->

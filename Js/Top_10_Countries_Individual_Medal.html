@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "Top 10 Countries by Individual Medals"},
+  "background": "white",
+  "repeat": ["Total_Gold_Medals", "Total_Silver_Medals", "Total_Bronze_Medals"],
+  "spec": {
+    "data": {
+      "url": "https://raw.githubusercontent.com/wgmz5/FIT3179/main/Data/olympic_medals_merged.csv"
+    },
+    "layer": [
+      {
+        "selection": {
+          "countrySelect": {
+            "type": "multi",
+            "fields": ["Country"],
+            "bind": "legend"
+          }
+        },
+        "mark": "circle",
+        "encoding": {
+          "x": {"field": {"repeat": "repeat"}},
+          "y": {"field": "Country"},
+          "color": {
+            "field": "Country",
+            "scale": {"range": ["purple", "#ff0000", "teal"]}
+          },
+          "opacity": {
+            "condition": {"selection": "countrySelect", "value": 1},
+            "value": 0.1
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal", "title": "Country"},
+            {"field": {"repeat": "repeat"}, "type": "quantitative"}
+          ]
+        }
+      }
+    ]
+  },
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>

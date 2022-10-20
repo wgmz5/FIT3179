@@ -103,20 +103,23 @@
   </div> <!-- end page -->
 
   <script type="text/javascript">
-    var specVis1 = "./normalised-stacked-bars-responsive.json";
-    var specVis2 = "./line-chart-responsive.json";
-
-    vegaEmbed('#vis1', specVis1, { "actions": false });
-
-    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+    var spec1 = "js/choropleth_map.vl.json";
+    vegaEmbed('#choropleth_map', spec1).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
-
-    vegaEmbed('#vis3', specVis1, { "actions": false }).then(function (result) {
+  
+    var spec2 = "js/top20_countries_lolipop.vl.json";
+    vegaEmbed('#vis1', spec2).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
-
-    vegaEmbed('#vis4', specVis2, { "actions": false }).then(function (result) {
+  
+    var spec3 = "js/top_countries_individual_medal.vl.json";
+    vegaEmbed('#vis2', spec3).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  
+    var spec4 = "js/top_countries_gdp.vl.json";
+    vegaEmbed('#vis3', spec4).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>

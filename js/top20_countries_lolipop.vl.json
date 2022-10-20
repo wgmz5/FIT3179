@@ -60,7 +60,7 @@
         "type": "circle",
         "size": 650,
         "stroke": "black",
-        "color": "blue",
+        "color": "red",
         "opacity": 1
       },
       "encoding": {

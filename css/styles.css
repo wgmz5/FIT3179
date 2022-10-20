@@ -14,8 +14,9 @@ body {
     width: 1000px;
     background-color: white;
     margin: auto;
-    padding: 50px;
+    padding: 100px;
     padding-top: 35px;
+    align-content: center;
 }
 
 .vis-container {
